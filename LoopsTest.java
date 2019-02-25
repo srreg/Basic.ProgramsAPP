@@ -65,7 +65,7 @@ class Loops {
 public class LoopsTest {
 
 	public static void main(String[] args) {
-		int num = 10;
+		int num = 9;
 		int j = 3;
 		int rngfrom = 1;
 		int rngto = 99;

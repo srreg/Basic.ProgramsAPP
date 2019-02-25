@@ -112,6 +112,20 @@ class ArrayMediumPrograms {
 		for (String names : str)
 			System.out.print(names + " ");
 	}
+	public static int FirstRepeatedElement(int[] arryrep) {
+		int val = 0;
+		aa: for (int i = 0; i < arryrep.length; i++) {
+			 for (int j = i + 1; j < arryrep.length; j++) {
+				if ((arryrep[i] == arryrep[j]) && (i != j)) {
+					val = j;
+				break aa;
+				}
+				
+			}
+			
+		}
+		return arryrep[val];
+	}
 
 	public static void AlterPositNegit(int[] array) {
 		List<Object> PositiveNumbers = new ArrayList<Object>();
@@ -131,12 +145,27 @@ class ArrayMediumPrograms {
 		Arrays.sort(NegativeNumbers1);
 		System.out.println("\n" + Arrays.toString(PositiveNumbers1));
 		System.out.println(Arrays.toString(NegativeNumbers1));
-		for (int i = 0; i < array.length/2; i++) {
+		for (int i = 0; i < array.length / 2; i++) {
 
 			Alternatearry.addAll(Arrays.asList(NegativeNumbers1[i], PositiveNumbers1[i]));
 
 		}
 		System.out.println(Alternatearry);
+	}
+	public static void DupliElementinArray(int[] duparra) {
+		int count, range;
+		Arrays.sort(duparra);
+		int len = duparra.length-1;
+		int max = duparra[len];
+		for(range =0; range<=max; range++) {
+			count = 0;
+			for(int i=0; i<duparra.length; i++) {
+				if(duparra[i] == range)
+					count++;
+			}
+				if(count>1)
+					System.out.println("Number of Occurence of an Element "+range+" : "+count);
+		}
 	}
 }
 
@@ -145,6 +174,8 @@ public class ArrayMediumProgramsTest {
 	public static void main(String[] args) {
 		int[] arr = { 15, 7, 43, 89, 18, 87, 54, 99, 45 };
 		int[] arra = { 15, 7, 43, 89, 18, 87, 54, 99, 45 };
+		int[] duparra = { 9, 15, 14, 45, 43, 81, 9, 5, 55, 67, 81, 15, 9 };
+		int[] arryrep = { 9,15, 14, 45, 43, 81, 99, 5, 55, 67, 81, 15 };
 		int[] array = { 12, -22, 43, 545, -4, -55, 15, 369, -99, -87 };
 		String[] str = { "Sateesh", "Sandeep", "Rohit", "Sudarshan", "Karthik", "Sharma", "Vishnu", "Pooja" };
 		int check = 45;
@@ -179,7 +210,10 @@ public class ArrayMediumProgramsTest {
 		ArrayMediumPrograms.SortDsc(arra);
 		System.out.print("\nSorted Names in Alphabetical Order: ");
 		ArrayMediumPrograms.SortAscString(str);
+		int rptelement = ArrayMediumPrograms.FirstRepeatedElement(arryrep);
+		System.out.print("\nFirst Repeated Element in the Int Array: "+rptelement );
 		ArrayMediumPrograms.AlterPositNegit(array);
+		ArrayMediumPrograms.DupliElementinArray(duparra);
 
 	}
 
